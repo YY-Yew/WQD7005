@@ -5,7 +5,7 @@ https://drive.google.com/open?id=1rQKgs_aVW5TE5Ofkobs5Y894NbcVgRjA<br/>
 (1) Data Crawler<br/>
 
 stock_crawl_F.py<br/>
-This python code is link to a stockcode list named "Parameter.txt". <br/>
+This python code is link to a stockcode list named "Parameter.txt" and crawl the data from https://www.thestar.com.my/business/marketwatch/. <br/>
 However no additional steps should be conducted because the py file has inserted a google drive link and it will download the required file automatically.<br/>
 
 TweetCrawler.py<br/>
