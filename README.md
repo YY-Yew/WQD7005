@@ -9,7 +9,7 @@ This python code is link to a stockcode list named "Parameter.txt". <br/>
 However no additional steps should be conducted because the py file has inserted a google drive link and it will download the required file automatically.<br/>
 
 TweetCrawler.py<br/>
-This python code can be used to crawl information from tweeter. However it has narrow down the scope to United Airlines.<br/><br/>
+This python code can be used to crawl information from tweeter. However it has narrow down the scope to United Airlines.<br/>
 
 PDFCrawler.py<br/>
 This python code is to auto-download Annual Report in PDF format.<br/>
