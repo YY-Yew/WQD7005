@@ -4,6 +4,9 @@ import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
+
+
+
 ##download and save all the data files in same directory as this script
 #read the script path
 path = os.path.dirname(os.path.realpath('__file__'))
@@ -19,14 +22,15 @@ filenames = [f for f in arr]
 
 #read the 1st file and select useful variables(company name, stock code and last price) 
 stock_1stFile = pd.read_csv(filenames[0], sep = '\t', encoding='latin-1')
-selected_var1 = pd.DataFrame(stock_1stFile.loc[:,['Stock_Code', 'Last']])
+stock = pd.DataFrame(stock_1stFile.loc[:,['Stock_Code', 'Last']])
 
 #combine the files based on keyID
 for data in filenames[1:]:
     stock_remain = pd.read_csv(data, sep = '\t', encoding="latin-1")
     selected_var2 = pd.DataFrame(stock_remain.loc[:,['Stock_Code', 'Last']])
-    merge = pd.merge(selected_var1, selected_var2, how = 'left', left_on = 'Stock_Code', right_on = 'Stock_Code')
-stock = merge.replace(np.NaN,0)
+    merge = pd.merge(stock, selected_var2, how = 'left', left_on = 'Stock_Code', right_on = 'Stock_Code')
+    stock = merge
+stock = stock.replace(np.NaN,0)
 
 #PCA
 x = stock.iloc[:,1:].values
@@ -40,10 +44,7 @@ principalDf = pd.DataFrame(data = principalComponents
 print(principalDf.head(5),'\n')
     
 #covariance analysis
-y = np.array(principalDf)
+y = np.array(principalDf).T
 covariance = np.cov(y)
 variance = np.var(y, axis=1, ddof=1)
 print('covariance =\n\n',covariance)
-
-
-
